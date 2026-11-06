@@ -1,0 +1,79 @@
+/* Awkward sn@ail — calm, plain, readable */
+
+:root {
+  --bg: #0d0f0c;
+  --text: #d8e2d2;
+  --muted: #93a08c;
+  --accent: #7bd88f;      /* phosphor green */
+  --rule: #2a3227;
+  --mono: "VT323", ui-monospace, "Courier New", monospace;
+  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f5ef;
+    --text: #1e231c;
+    --muted: #586253;
+    --accent: #1f6b33;
+    --rule: #d8d6cc;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root { --muted: var(--text); }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 112.5%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  line-height: 1.6;
+}
+
+main {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 3rem 1rem 4rem;
+}
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.wordmark {
+  font-family: var(--mono);
+  font-weight: normal;
+  font-size: 3.2rem;
+  line-height: 1;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+.wordmark a { color: inherit; text-decoration: none; }
+
+.tagline { color: var(--muted); margin: 0 0 2.5rem; }
+
+h2 {
+  font-family: var(--mono);
+  font-weight: normal;
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin: 2.5rem 0 0.75rem;
+}
+
+ol.promise { padding-left: 1.4rem; }
+ol.promise li { margin-bottom: 1rem; }
+ol.promise strong { display: block; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0 1.5rem; }
+
+footer, .small { color: var(--muted); font-size: 0.9rem; }
+
+/* No animation anywhere; this just guards against anything added later. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
